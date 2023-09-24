@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="output.css" />
   </head>
   <body class="h-screen w-screen flex justify-center items-center bg-[#fee2e2]">
-    <div class="w-[50%] h-[80%] rounded-sm grid">
+    <div class="w-[50%] h-[80%] rounded-sm grid max-w-sm">
       <div
-        class="hover: bg-[#fc5154] flex-col row-[1/2] text-white pt-[2vmin] pb-[calc(17%_+_2vmin)] rounded-t-[2vmin] col-[1/2] flex justify-between items-center text-[4vmin] relative"
+        class="hover: bg-[#fc5154] flex-col row-[1/2] text-white pt-[2vmin] pb-[calc(17%_+_2vmin)] rounded-t-[2vmin] col-[1/2] flex justify-between items-center text-[4vmin] relative w-full"
       >
         <div
           class="h-[17vmin] w-[17vmin] bg-white absolute -translate-y-2/4 -rotate-45 z-[2] rounded-[50%] border-l-transparent border-t-transparent top-full"
@@ -18,20 +18,23 @@
         <select
           onchange="updateValue()"
           id="fromCurrency"
-          class="bg-[#fc5154] outline-none focus:ring-0 border-none"
+          class="bg-[#fc5154] outline-none focus:ring-0 border-none text-[3vmin]"
         >
           <!-- Add currency options here -->
         </select>
-        <div>
+        <span class="max-w-xs">
           <input
-            class="bg-[#fc5154] inline border-none outline-none focus:ring-0 tracking-[0.04em] text-center [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+            class="bg-[#fc5154] text-[11vmin] w-full placeholder:text-white inline border-none outline-none focus:ring-0 tracking-[0.04em] text-center [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
             type="number"
             id="amount"
-            value="0"
+            placeholder="0"
             onchange="updateValue()"
           />
-        </div>
+        </span>
         <span id="fromCurrencyCode"></span>
+        <div
+          class="h-[calc(17vmin_+_2vmin)] w-[calc(17vmin_+_2vmin)] bg-[#fc5154] absolute -translate-y-2/4 -rotate-45 z-[1] rounded-[50%] border-l-transparent border-t-transparent bottom-[calc(50%_+_2vmin_/_2)] top-full"
+        ></div>
         <div
           class="text-[8vmin] font-black absolute -translate-y-2/4 z-[3] text-[#fc5154] top-full"
         >
@@ -51,20 +54,16 @@
       <div
         class="bg-white flex-col-reverse row-[2/3] text-[#fc5154] pt-[calc(17%_+_2vmin)] pb-[2vmin] rounded-br-[2vmin] rounded-bl-[2vmin] col-[1/2] flex justify-between items-center text-[4vmin] relative"
       >
-        <div
-          class="h-[calc(17vmin_+_2vmin)] w-[calc(17vmin_+_2vmin)] bg-[#fc5154] absolute -translate-y-2/4 -rotate-45 z-[1] rounded-[50%] border-l-transparent border-t-transparent bottom-[calc(50%_+_2vmin_/_2)]"
-        ></div>
         <span></span>
         <select
           onchange="updateValue()"
           id="toCurrency"
-          class="outline-none focus:ring-0 border-none"
-        >
-          <!-- Add currency options here -->
-        </select>
-        <div><span id="result">0</span></div>
+          class="outline-none focus:ring-0 border-none text-[3vmin]"
+        ></select>
+        <div><span id="result" class="text-[11vmin]">0</span></div>
         <span id="toCurrencyCode"></span>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
