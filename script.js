@@ -25,6 +25,14 @@ fetch("https://api.frankfurter.app/currencies")
     console.error("Error fetching currencies:", error);
   });
 
+function showToast() {
+  var toast = document.getElementById("toast");
+  toast.classList.remove("hidden");
+  setTimeout(function () {
+    toast.classList.add("hidden");
+  }, 3000);
+}
+
 function updateValue() {
   const fromCurrency = fromCurrencySelect.value;
   const toCurrency = toCurrencySelect.value;
@@ -36,7 +44,8 @@ function updateValue() {
   if (fromCurrency != toCurrency) {
     convert(fromCurrency, toCurrency, amount);
   } else {
-    alert("Choose Diffrent Currency");
+    // alert("Choose Diffrent Currency");
+    showToast();
   }
 }
 
