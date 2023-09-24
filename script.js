@@ -5,18 +5,19 @@ const amountInput = document.getElementById("amount");
 fetch("https://api.frankfurter.app/currencies")
   .then((response) => response.json())
   .then((data) => {
-    // Populate the currency options dropdowns
     for (const currency in data) {
       const option1 = document.createElement("option");
       option1.value = currency;
-      option1.textContent = `${currency} - ${data[currency]}`;
+      option1.textContent = `${data[currency]}`;
       fromCurrencySelect.appendChild(option1);
 
       const option2 = document.createElement("option");
       option2.value = currency;
-      option2.textContent = `${currency} - ${data[currency]}`;
+      option2.textContent = `${data[currency]}`;
       toCurrencySelect.appendChild(option2);
     }
+    fromCurrencySelect.value = "USD";
+    toCurrencySelect.value = "INR";
     fromCurrencyCode.textContent = fromCurrencySelect.value;
     toCurrencyCode.textContent = toCurrencySelect.value;
   })
