@@ -1,9 +1,7 @@
-const amountInput = document.getElementById("amount");
 const fromCurrencySelect = document.getElementById("fromCurrency");
 const toCurrencySelect = document.getElementById("toCurrency");
-const resultDiv = document.getElementById("result");
+const amountInput = document.getElementById("amount");
 
-// Fetch the list of available currencies from the Frankfurter API
 fetch("https://api.frankfurter.app/currencies")
   .then((response) => response.json())
   .then((data) => {
@@ -19,6 +17,8 @@ fetch("https://api.frankfurter.app/currencies")
       option2.textContent = `${currency} - ${data[currency]}`;
       toCurrencySelect.appendChild(option2);
     }
+    fromCurrencyCode.textContent = fromCurrencySelect.value;
+    toCurrencyCode.textContent = toCurrencySelect.value;
   })
   .catch((error) => {
     console.error("Error fetching currencies:", error);
@@ -27,6 +27,9 @@ fetch("https://api.frankfurter.app/currencies")
 function updateValue() {
   const fromCurrency = fromCurrencySelect.value;
   const toCurrency = toCurrencySelect.value;
+  fromCurrencyCode.textContent = fromCurrency;
+  toCurrencyCode.textContent = toCurrency;
+
   const amount = parseFloat(amountInput.value);
 
   if (fromCurrency != toCurrency) {
@@ -50,7 +53,7 @@ function convert(fromCurrency, toCurrency, amount) {
       }
 
       const convertedAmount = (amount * exchangeRate).toFixed(2);
-      resultDiv.textContent = `${amount} ${fromCurrency} equals ${convertedAmount} ${toCurrency}`;
+      result.textContent = `${convertedAmount}`;
     })
     .catch((error) => {
       console.error("Error fetching exchange rate:", error);

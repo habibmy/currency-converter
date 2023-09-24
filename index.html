@@ -4,31 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Currency Converter</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="output.css" />
   </head>
-  <body>
-    <div class="container">
-      <h1>Currency Converter</h1>
-      <div class="converter">
-        <input
-          type="number"
-          id="amount"
-          placeholder="Amount"
+  <body class="h-screen w-screen flex justify-center items-center bg-[#fee2e2]">
+    <div class="w-[50%] h-[80%] rounded-sm grid">
+      <div
+        class="hover: bg-[#fc5154] flex-col row-[1/2] text-white pt-[2vmin] pb-[calc(17%_+_2vmin)] rounded-t-[2vmin] col-[1/2] flex justify-between items-center text-[4vmin] relative"
+      >
+        <div
+          class="h-[17vmin] w-[17vmin] bg-white absolute -translate-y-2/4 -rotate-45 z-[2] rounded-[50%] border-l-transparent border-t-transparent top-full"
+        ></div>
+        <span></span>
+        <select
           onchange="updateValue()"
-        />
-        <select id="fromCurrency" onchange="updateValue()">
+          id="fromCurrency"
+          class="bg-[#fc5154] outline-none focus:ring-0 border-none"
+        >
           <!-- Add currency options here -->
         </select>
-        <span>to</span>
-        <select id="toCurrency" onchange="updateValue()">
-          <!-- Add currency options here -->
-        </select>
+        <div>
+          <input
+            class="bg-[#fc5154] inline border-none outline-none focus:ring-0 tracking-[0.04em] text-center [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+            type="number"
+            id="amount"
+            value="0"
+            onchange="updateValue()"
+          />
+        </div>
+        <span id="fromCurrencyCode"></span>
+        <div
+          class="text-[8vmin] font-black absolute -translate-y-2/4 z-[3] text-[#fc5154] top-full"
+        >
+          <svg
+            class="fill-[#fc5154]"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 384 512"
+          >
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+            />
+          </svg>
+        </div>
       </div>
-      <div class="result" id="result">
-        <!-- Conversion result will be displayed here -->
+      <div
+        class="bg-white flex-col-reverse row-[2/3] text-[#fc5154] pt-[calc(17%_+_2vmin)] pb-[2vmin] rounded-br-[2vmin] rounded-bl-[2vmin] col-[1/2] flex justify-between items-center text-[4vmin] relative"
+      >
+        <div
+          class="h-[calc(17vmin_+_2vmin)] w-[calc(17vmin_+_2vmin)] bg-[#fc5154] absolute -translate-y-2/4 -rotate-45 z-[1] rounded-[50%] border-l-transparent border-t-transparent bottom-[calc(50%_+_2vmin_/_2)]"
+        ></div>
+        <span></span>
+        <select
+          onchange="updateValue()"
+          id="toCurrency"
+          class="outline-none focus:ring-0 border-none"
+        >
+          <!-- Add currency options here -->
+        </select>
+        <div><span id="result">0</span></div>
+        <span id="toCurrencyCode"></span>
       </div>
     </div>
-
-    <script src="script.js"></script>
   </body>
 </html>
